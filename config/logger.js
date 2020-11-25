@@ -1,4 +1,4 @@
-const winston = require('winston');
+const winston = require("winston");
 
 const levels = {
   error: 0,
@@ -12,41 +12,38 @@ const levels = {
 const logger = winston.createLogger({
   format: winston.format.combine(
     winston.format.label({
-      label: 'voxe-content-service',
+      label: "voxe-content-service",
     }),
     winston.format.timestamp(),
     winston.format.splat(),
     winston.format.metadata({
-      fillExcept: ['message', 'level', 'timestamp', 'label'],
+      fillExcept: ["message", "level", "timestamp", "label"],
     }),
-    winston.format.prettyPrint(),
+    winston.format.prettyPrint()
   ),
 
   transports: [
     new winston.transports.File({
-      filename: 'logs/debug.log',
-      level: 'debug',
+      filename: "logs/debug.log",
+      level: "debug",
     }),
     new winston.transports.File({
-      filename: 'logs/error.log',
-      level: 'error',
+      filename: "logs/error.log",
+      level: "error",
     }),
   ],
 });
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
   const consoleLogFormat = winston.format.printf(
-    info => `${info.timestamp} ${info.level} [${info.label}]: ${info.message}`,
+    (info) => `${info.timestamp} ${info.level} [${info.label}]: ${info.message}`
   );
 
   logger.add(
     new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        consoleLogFormat,
-      ),
-      level: 'debug',
-    }),
+      format: winston.format.combine(winston.format.colorize(), consoleLogFormat),
+      level: "debug",
+    })
   );
 }
 

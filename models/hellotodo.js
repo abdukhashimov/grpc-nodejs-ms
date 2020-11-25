@@ -21,5 +21,5 @@ const helloValidationSchema = Joi.object({
   body: Joi.string().min(3).max(100).required(),
 }).options({ allowUnknown: true });
 
-module.exports = helloValidationSchema;
-module.exports = HelloSchema;
+module.exports.helloValidationSchema = helloValidationSchema;
+module.exports.HelloSchema = HelloSchema;
