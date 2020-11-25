@@ -23,3 +23,5 @@ export let findHello = async (call, callback) => {
     callback({ code: grpc.status.INTERNAL, message: error.message });
   }
 };
+
+
