@@ -7,6 +7,7 @@ option go_package="genproto/hello";
 service HelloService {
     rpc Create(HelloTodo) returns (HelloTodo) {}
     rpc Find(Empty) returns (HelloTodos) {}
+    rpc Update()
 }
 
 message Empty {
@@ -18,6 +19,7 @@ message HelloTodos {
 }
 
 message HelloTodo {
+    string id = 1;
     string title = 2;
     string body = 3;
     string created_at = 4;
