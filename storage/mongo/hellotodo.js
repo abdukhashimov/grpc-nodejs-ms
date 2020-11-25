@@ -81,6 +81,16 @@ const helloStorage = {
       throw new Error("Id is required");
     }
     logger.debug("Delete request for hello db", { label: "hello", request: data });
+    try {
+      const response = await Hello.deleteOne({ _id: data.id });
+      return response;
+    } catch (error) {
+      logger.error(`Error while deleting a hello with id: ${data.id}`, {
+        label: "hello",
+        error: error,
+      });
+      throw new Error(error.message);
+    }
   },
 };
 
