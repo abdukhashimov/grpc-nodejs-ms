@@ -14,7 +14,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_URL, {
   defaults: true,
   oneofs: true,
 });
-const paymentProto = grpc.loadPackageDefinition(packageDefinition).payments;
+const helloProto = grpc.loadPackageDefinition(packageDefinition).hello;
 
 function main() {
   logger.info("Main function is running");
@@ -58,7 +58,10 @@ function main() {
   // gRPC server
   var server = new grpc.Server();
 
-  server.addService(paymentProto.TransactionService.service, require("./services/transaction.js"));
+  server.addService(
+    helloProto.TransactionService.service,
+    require("hello./services/transaction.js")
+  );
 
   server.bind("0.0.0.0:" + cfg.RPCPort, grpc.ServerCredentials.createInsecure());
 
