@@ -1,4 +1,4 @@
-const HelloService = {
+export const HelloService = {
   Create: async (data) => {},
   Find: async (data) => {},
   Get: async (data) => {},
