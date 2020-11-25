@@ -22,4 +22,4 @@ const helloValidationSchema = Joi.object({
 }).options({ allowUnknown: true });
 
 module.exports.helloValidationSchema = helloValidationSchema;
-module.exports.HelloSchema = HelloSchema;
+module.exports.Hello = mongoose.model("Hello", HelloSchema);
