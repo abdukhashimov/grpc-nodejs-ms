@@ -62,6 +62,19 @@ const helloStorage = {
       throw new Error("Id is required");
     }
     logger.debug("Update request for hello db", { label: "hello", request: data });
+    try {
+      const hello = await Hello.findOne({ _id: data.id });
+      hello.title = data.title;
+      hello.body = data.body;
+      await hello.save();
+      return hello;
+    } catch (error) {
+      logger.error(`Error while updating a hello with id: ${data.id}`, {
+        label: "hello",
+        error: error,
+      });
+      throw new Error(error.message);
+    }
   },
   delete: async (data) => {
     if (!("id" in data)) {
