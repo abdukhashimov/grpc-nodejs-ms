@@ -38,7 +38,7 @@ export let getHello = async (call, callback) => {
 export let updateHello = async (call, callback) => {
   logger.debug("Update hello request", { label: "hello", request: call.request });
   try {
-    const response = await helloStorage.find(call.request);
+    const response = await helloStorage.update(call.request);
     callback(null, response);
   } catch (error) {
     logger.error(error.message, { function: "service.hello.update", request: call.request });
@@ -49,7 +49,7 @@ export let updateHello = async (call, callback) => {
 export let deleteHello = async (call, callback) => {
   logger.debug("Delete hello request", { label: "hello", request: call.request });
   try {
-    const response = await helloStorage.find(call.request);
+    const response = await helloStorage.delete(call.request);
     callback(null, response);
   } catch (error) {
     logger.error(error.message, { function: "service.hello.delete", request: call.request });
