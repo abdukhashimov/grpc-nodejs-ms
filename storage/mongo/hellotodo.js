@@ -20,6 +20,7 @@ const helloStorage = {
       });
     } catch (error) {
       logger.error("Error while creating a transaction", { label: "hello", error: error });
+      return error;
     }
   },
   find: async (data) => {},
