@@ -3,6 +3,7 @@ const protoLoader = require("@grpc/proto-loader");
 const mongoose = require("mongoose");
 const logger = require("./config/logger.js");
 const cfg = require("./config");
+const { HelloService } = require("./services/main.js");
 
 // loading proto file
 const PROTO_URL = __dirname + "/protos/hello_service/hello.proto";
@@ -59,10 +60,7 @@ function main() {
   // gRPC server
   var server = new grpc.Server();
 
-  server.addService(
-    helloProto.TransactionService.service,
-    require("hello./services/transaction.js")
-  );
+  server.addService(helloProto.HelloService.service, ...HelloService);
 
   server.bind("0.0.0.0:" + cfg.RPCPort, grpc.ServerCredentials.createInsecure());
 

@@ -1,0 +1,30 @@
+{
+  "name": "grpc-nodejs-ms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "joi": "^17.3.0",
+    "mongoose": "^5.10.15",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdukhashimov/grpc-nodejs-ms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdukhashimov/grpc-nodejs-ms/issues"
+  },
+  "homepage": "https://github.com/abdukhashimov/grpc-nodejs-ms#readme"
+}
