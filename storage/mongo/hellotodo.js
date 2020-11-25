@@ -57,8 +57,18 @@ const helloStorage = {
       throw new Error(error.message);
     }
   },
-  update: async (data) => {},
-  delete: async (data) => {},
+  update: async (data) => {
+    if (!("id" in data)) {
+      throw new Error("Id is required");
+    }
+    logger.debug("Update request for hello db", { label: "hello", request: data });
+  },
+  delete: async (data) => {
+    if (!("id" in data)) {
+      throw new Error("Id is required");
+    }
+    logger.debug("Delete request for hello db", { label: "hello", request: data });
+  },
 };
 
 module.exports = helloStorage;
