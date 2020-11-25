@@ -7,7 +7,8 @@ option go_package="genproto/hello";
 service HelloService {
     rpc Create(HelloTodo) returns (HelloTodo) {}
     rpc Find(Empty) returns (HelloTodos) {}
-    rpc Update()
+    rpc Update(HelloTodo) returns (HelloTodo) {}
+    rpc Delete(HelloRequest) returns (Empty) {}
 }
 
 message Empty {
@@ -16,6 +17,10 @@ message Empty {
 message HelloTodos {
     repeated HelloTodo hello_todos = 1;
     int32 count = 2;
+}
+
+message HelloRequest {
+    string id = 1;
 }
 
 message HelloTodo {
