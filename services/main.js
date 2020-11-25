@@ -1,7 +1,9 @@
+import { createHello } from "./hellotodo";
+
 export const HelloService = {
-  Create: async (data) => {},
-  Find: async (data) => {},
-  Get: async (data) => {},
-  Update: async (data) => {},
-  Delete: async (data) => {},
+  Create: createHello(call, callback),
+  Find: async (data, data2) => {},
+  Get: async (data, data2) => {},
+  Update: async (data, data2) => {},
+  Delete: async (data, data2) => {},
 };
