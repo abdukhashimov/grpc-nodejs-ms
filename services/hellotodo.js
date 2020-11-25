@@ -24,4 +24,35 @@ export let findHello = async (call, callback) => {
   }
 };
 
+export let getHello = async (call, callback) => {
+  logger.debug("Get hello request", { label: "hello", request: call.request });
+  try {
+    const response = await helloStorage.get(call.request);
+    callback(null, response);
+  } catch (error) {
+    logger.error(error.message, { function: "service.hello.get", request: call.request });
+    callback({ code: grpc.status.INTERNAL, message: error.message });
+  }
+};
 
+export let updateHello = async (call, callback) => {
+  logger.debug("Update hello request", { label: "hello", request: call.request });
+  try {
+    const response = await helloStorage.find(call.request);
+    callback(null, response);
+  } catch (error) {
+    logger.error(error.message, { function: "service.hello.update", request: call.request });
+    callback({ code: grpc.status.INTERNAL, message: error.message });
+  }
+};
+
+export let deleteHello = async (call, callback) => {
+  logger.debug("Delete hello request", { label: "hello", request: call.request });
+  try {
+    const response = await helloStorage.find(call.request);
+    callback(null, response);
+  } catch (error) {
+    logger.error(error.message, { function: "service.hello.delete", request: call.request });
+    callback({ code: grpc.status.INTERNAL, message: error.message });
+  }
+};
