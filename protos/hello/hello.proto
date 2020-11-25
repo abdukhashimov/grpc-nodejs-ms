@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package hello;
+
+option go_package="genproto/hello";
+
+service HelloService {
+    rpc Create(HelloTodo) returns (HelloTodo) {}
+    rpc Find(Empty) returns (HelloTodos) {}
+}
+
+message Empty {
+}
+
+message HelloTodos {
+    repeated HelloTodo hello_todos = 1;
+    int32 count = 2;
+}
+
+message HelloTodo {
+    string title = 2;
+    string body = 3;
+    string created_at = 4;
+}
+
