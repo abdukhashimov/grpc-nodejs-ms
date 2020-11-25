@@ -19,7 +19,7 @@ const HelloSchema = new mongoose.Schema({
 const helloValidationSchema = Joi.object({
   title: Joi.string().min(3).max(100).required(),
   body: Joi.string().min(3).max(100).required(),
-});
+}).options({ allowUnknown: true });
 
 module.exports = helloValidationSchema;
 module.exports = HelloSchema;
