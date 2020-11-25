@@ -14,6 +14,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_URL, {
   defaults: true,
   oneofs: true,
 });
+
 const helloProto = grpc.loadPackageDefinition(packageDefinition).hello;
 
 function main() {
