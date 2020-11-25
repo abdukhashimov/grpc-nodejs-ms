@@ -28,3 +28,5 @@ const helloStorage = {
   update: async (data) => {},
   delete: async (data) => {},
 };
+
+module.exports = helloStorage;
