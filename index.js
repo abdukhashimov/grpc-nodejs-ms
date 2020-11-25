@@ -60,7 +60,7 @@ function main() {
   // gRPC server
   var server = new grpc.Server();
 
-  server.addService(helloProto.HelloService.service, ...HelloService);
+  server.addService(helloProto.HelloService.service, HelloService);
 
   server.bind("0.0.0.0:" + cfg.RPCPort, grpc.ServerCredentials.createInsecure());
 

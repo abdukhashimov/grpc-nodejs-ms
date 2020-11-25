@@ -1,9 +1,11 @@
-import { createHello, deleteHello, findHello, getHello, updateHello } from "./hellotodo";
+const { createHello, deleteHello, findHello, getHello, updateHello } = require("./hellotodo");
 
-export const HelloService = {
-  Create: createHello(call, callback),
-  Find: findHello(call, callback),
-  Get: getHello(call, callback),
-  Update: updateHello(call, callback),
-  Delete: deleteHello(call, callback),
+const HelloService = {
+  Create: (call, callback) => createHello(call, callback),
+  Find: (call, callback) => findHello(call, callback),
+  Get: (call, callback) => getHello(call, callback),
+  Update: (call, callback) => updateHello(call, callback),
+  Delete: (call, callback) => deleteHello(call, callback),
 };
+
+module.exports.HelloService = HelloService;
